@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_container"/>
+    </LinearLayout>
+
+    <!-- Left Drawer -->
+    <RelativeLayout
+        android:id="@+id/left_drawer"
+        android:layout_width="@dimen/left_fragment_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" >
+
+        <fragment
+            android:id="@+id/fragment_left"
+            android:name="com.example.tubes01.MenuFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

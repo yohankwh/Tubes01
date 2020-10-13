@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_box_height">100dp</dimen>
+    <dimen name="default_font">14pt</dimen>
+    <dimen name="default_fontsize">20sp</dimen>
+    <dimen name="main_msg_height">250dp</dimen>
+    <dimen name="btn_width">225dp</dimen>
+    <dimen name="left_fragment_width">180dp</dimen>
+</resources>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Tubes01</string>
+    <string name="header_main_message">Makan Apa</string>
+    <string name="body_main_message">Makan Apa\nHari ini?</string>
+    <string name="button_main">Cari</string>
+</resources>
