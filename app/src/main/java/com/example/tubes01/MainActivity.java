@@ -11,10 +11,15 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.tubes01.models.Food;
+
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements FragmentListener, IMainActivity {
     private FragmentManager fragmentManager;
     private DrawerLayout drawer;
     private MainFragment mainFragment;
+    private MenuListFragment menuListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         this.drawer = findViewById(R.id.drawer_layout);
 
         this.mainFragment = new MainFragment();
+        this.menuListFragment = new MenuListFragment();
 
         ft.add(R.id.fragment_container, this.mainFragment)
                 .addToBackStack(null)
@@ -40,5 +46,45 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        });
+    }
+
+    @Override
+    public void changePage(int page){
+        FragmentTransaction ft = this.fragmentManager.beginTransaction();
+        if(page==1){
+            if(this.mainFragment.isAdded()){
+                ft.show(this.mainFragment);
+            }else{
+                ft.add(R.id.fragment_container, this.mainFragment);
+            }
+            if(this.menuListFragment.isAdded()){
+                ft.hide(this.menuListFragment);
+            }
+            this.drawer.closeDrawers();
+//            ft.replace(R.id.fragment_container, this.fragment1)
+//                    .addToBackStack(null);
+        }else if(page==2){
+            if(this.menuListFragment.isAdded()){
+                ft.show(this.menuListFragment);
+            }else{
+                ft.add(R.id.fragment_container, this.menuListFragment)
+                        .addToBackStack(null);
+            }
+            if(this.mainFragment.isAdded()){
+                ft.hide(this.mainFragment);
+            }
+            this.drawer.closeDrawers();
+        }
+        ft.commit();
+    }
+
+    @Override
+    public void updateList(List<Food> foods) {
+
+    }
+
+    @Override
+    public void resetAddForm() {
+
     }
 }

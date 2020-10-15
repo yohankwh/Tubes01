@@ -16,6 +16,17 @@
             android:layout_height="wrap_content"
             android:text="WTF"/>
 
+<!--        TODO: change to listview-->
+        <!--TEMP-->
+        <Button
+            android:id="@+id/btn_nav_menu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Menu"
+            android:background="@color/white"
+            >
+        </Button>
+
     </RelativeLayout>
 
 </FrameLayout>

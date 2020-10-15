@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_box_height">100dp</dimen>
+    <dimen name="box_item_height">70dp</dimen>
     <dimen name="default_font">14pt</dimen>
     <dimen name="default_fontsize">20sp</dimen>
     <dimen name="main_msg_height">250dp</dimen>

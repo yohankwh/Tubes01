@@ -1,20 +1,25 @@
 package com.example.tubes01;
 
 import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.example.tubes01.models.Food;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FoodListAdapter extends BaseAdapter {
     private Activity activity;
     private List<Food> foods;
+    private MainPresenter presenter;
 
-    public FoodListAdapter(Activity activity){
+    public FoodListAdapter(Activity activity, MainPresenter presenter){
         this.activity = activity;
+        this.foods = new ArrayList<Food>();
+        this.presenter = presenter;
     }
 
     @Override
@@ -33,15 +38,19 @@ public class FoodListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-//        ViewHolder viewHolder;
-//
-//        if(convertView==null){
-//
-//        }else{
-//
-//        }
-        return null;
+    public View getView(int i, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder;
+
+        if(convertView==null){
+            convertView = LayoutInflater.from(this.activity).inflate(R.layout.item_list_food, parent, false);
+            viewHolder = new ViewHolder(convertView, this.presenter);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+        viewHolder.updateView((Food)this.getItem(i), i);
+
+        // returns the view for the current row
+        return convertView;
     }
 
     private class ViewHolder implements View.OnClickListener{
