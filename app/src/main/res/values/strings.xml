@@ -3,4 +3,11 @@
     <string name="header_main_message">Makan Apa</string>
     <string name="body_main_message">Makan Apa\nHari ini?</string>
     <string name="button_main">Cari</string>
+    <string name="tv_menu_desc">Menu</string>
+    <string name="tv_menu_makanan">Nama Makanan</string>
+    <string name="tv_menu_deskripsi">Deskripsi :</string>
+    <string name="tv_menu_tag">Tag : </string>
+    <string name="tv_menu_bahan">Bahan : </string>
+    <string name="tv_menu_langkah_memasak">Langkah memasak :</string>
+    <string name="tv_menu_resto">Tersedia di Resto : </string>
 </resources>

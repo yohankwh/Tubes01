@@ -6,4 +6,5 @@
     <dimen name="main_msg_height">250dp</dimen>
     <dimen name="btn_width">225dp</dimen>
     <dimen name="left_fragment_width">180dp</dimen>
+    <dimen name="margin_frag_tv_menu_desc">20dp</dimen>
 </resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_menu_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_desc"
+            android:textStyle="bold"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_makanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_makanan"
+            android:textColor="@color/black"
+            android:gravity="center">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_deskripsi"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"></TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_tag"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"></TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_bahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_bahan"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"></TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_langkah_memasak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_langkah_memasak"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"></TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_resto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_resto"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"></TextView>
+
+
+        <ImageView
+            android:id="@+id/btn_menu_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_edit_24">
+
+        </ImageView>
+
+
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_margin="15dp"
+        app:fabSize="normal"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:id="@+id/fragment_menu_floating_btn"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
