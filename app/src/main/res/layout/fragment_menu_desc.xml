@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="20dp"
     android:gravity="center">
 
 
@@ -19,7 +18,8 @@
             android:layout_height="wrap_content"
             android:text="@string/tv_menu_desc"
             android:textStyle="bold"
-            android:textColor="@color/black">
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_name_menu">
 
         </TextView>
 

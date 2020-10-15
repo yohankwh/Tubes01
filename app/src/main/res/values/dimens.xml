@@ -8,4 +8,5 @@
     <dimen name="btn_width">225dp</dimen>
     <dimen name="left_fragment_width">180dp</dimen>
     <dimen name="margin_frag_tv_menu_desc">20dp</dimen>
+    <dimen name="tv_name_menu">20sp</dimen>
 </resources>
