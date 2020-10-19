@@ -20,19 +20,21 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     private DrawerLayout drawer;
     private MainFragment mainFragment;
     private MenuListFragment menuListFragment;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.presenter = new MainPresenter(this);
         this.fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
 
         this.drawer = findViewById(R.id.drawer_layout);
 
         this.mainFragment = new MainFragment();
-        this.menuListFragment = new MenuListFragment();
+        this.menuListFragment = new MenuListFragment(this.presenter);
 
         ft.add(R.id.fragment_container, this.mainFragment)
                 .addToBackStack(null)
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
 
     @Override
     public void updateList(List<Food> foods) {
-
+        this.menuListFragment.updateList(foods);
     }
 
     @Override

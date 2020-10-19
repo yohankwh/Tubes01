@@ -1,7 +1,10 @@
 package com.example.tubes01;
 
+import android.util.Log;
+
 import com.example.tubes01.models.Food;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,5 +21,11 @@ public class MainPresenter {
         this.foods.add(new Food(title));
         this.ui.updateList(this.foods);
         this.ui.resetAddForm();
+    }
+
+    public void loadData(){
+        this.foods.addAll(Arrays.asList(MockFood.foodObjectArr));
+        Log.d("SIZE: ",this.foods.size()+"");
+        this.ui.updateList(this.foods);
     }
 }
