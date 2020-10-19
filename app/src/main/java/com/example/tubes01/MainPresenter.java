@@ -7,6 +7,7 @@ import com.example.tubes01.models.Food;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class MainPresenter {
     protected List<Food> foods;
@@ -27,5 +28,12 @@ public class MainPresenter {
         this.foods.addAll(Arrays.asList(MockFood.foodObjectArr));
         Log.d("SIZE: ",this.foods.size()+"");
         this.ui.updateList(this.foods);
+    }
+
+    public String getRandomFood(){
+        Random rand = new Random();
+        int n = rand.nextInt(this.foods.size());
+
+        return this.foods.get(n).getName();
     }
 }

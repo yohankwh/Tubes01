@@ -20,6 +20,7 @@ public class MenuListFragment extends Fragment {
 
     public MenuListFragment(MainPresenter presenter){
         this.presenter = presenter;
+        this.adapter = new FoodListAdapter((Activity) this.presenter.ui, this.presenter );
     }
 
     @Override
@@ -29,9 +30,7 @@ public class MenuListFragment extends Fragment {
 
         this.foods = view.findViewById(R.id.lst_foods);
 
-        this.adapter = new FoodListAdapter((Activity) this.presenter.ui, this.presenter );
         this.foods.setAdapter(this.adapter);
-
 
         this.presenter.loadData();
         return view;

@@ -28,6 +28,7 @@
         />
         
         <Button
+            android:id="@+id/randomizer_btn"
             android:layout_width="@dimen/btn_width"
             android:layout_height="wrap_content"
             android:layout_below="@id/main_body_tv"

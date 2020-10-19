@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
 
         this.drawer = findViewById(R.id.drawer_layout);
 
-        this.mainFragment = new MainFragment();
+        this.mainFragment = new MainFragment(this.presenter);
         this.menuListFragment = new MenuListFragment(this.presenter);
 
         ft.add(R.id.fragment_container, this.mainFragment)
