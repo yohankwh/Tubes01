@@ -31,8 +31,7 @@ public class MenuListFragment extends Fragment {
         this.foods = view.findViewById(R.id.lst_foods);
 
         this.foods.setAdapter(this.adapter);
-
-        this.presenter.loadData();
+        
         return view;
     }
 
