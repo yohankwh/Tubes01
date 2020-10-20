@@ -21,6 +21,14 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         this.presenter = presenter;
     }
 
+//    public static MainFragment newInstance(String title){
+//        MainFragment mainFragment = new MainFragment();
+//        Bundle args = new Bundle();
+//        args.putString("title", title);
+//        mainFragment.setArguments(args);
+//        return mainFragment;
+//    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -29,7 +37,17 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         this.randomizerBtn.setOnClickListener(this);
         this.foodSuggestion = view.findViewById(R.id.main_body_tv);
 
+
         view.setOnClickListener(this);
+
+//        this.exitBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                MainActivity mainActivity = (MainActivity) getActivity();
+//                mainActivity.closeApplication();
+//                Log.d("debug", "keluar dari aplikasi");
+//            }
+//        });
 
         this.presenter.loadData();
         return view;

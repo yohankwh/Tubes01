@@ -10,4 +10,11 @@
     <string name="tv_menu_bahan">Bahan : </string>
     <string name="tv_menu_langkah_memasak">Langkah memasak :</string>
     <string name="tv_menu_resto">Tersedia di Resto : </string>
+    <string name="btn_nav_menu">Menu</string>
+    <string name="btn_nav_home">Home</string>
+    <string name="btn_nav_setting">Setting</string>
+    <string name="btn_nav_search">Cari</string>
+    <string name="btn_nav_exit">Exit</string>
+    <string name="openDrawer">Hamburger open</string>
+    <string name="closeDrawer">Hamburger close</string>
 </resources>

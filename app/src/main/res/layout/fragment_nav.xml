@@ -6,27 +6,69 @@
     android:background="@android:color/white">
 
 <!--TODO: create a list view container for menu -->
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="WTF"/>
-
 <!--        TODO: change to listview-->
         <!--TEMP-->
+
+        <Button
+            android:id="@+id/btn_nav_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_nav_home"
+            android:textAlignment="textStart"
+            android:background="@drawable/newstyle"
+            android:paddingLeft="@dimen/padding_nav_btn">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_nav_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_nav_search"
+            android:textAlignment="textStart"
+            android:background="@drawable/newstyle"
+            android:paddingLeft="@dimen/padding_nav_btn">
+
+        </Button>
+
         <Button
             android:id="@+id/btn_nav_menu"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Menu"
-            android:background="@color/white"
-            >
+            android:layout_height="wrap_content"
+            android:text="@string/btn_nav_menu"
+            android:textAlignment="textStart"
+            android:background="@drawable/newstyle"
+            android:paddingLeft="@dimen/padding_nav_btn">
         </Button>
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/btn_nav_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_nav_setting"
+            android:textAlignment="textStart"
+            android:background="@drawable/newstyle"
+            android:paddingLeft="@dimen/padding_nav_btn">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_nav_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_nav_exit"
+            android:textAlignment="textStart"
+            android:background="@drawable/newstyle"
+            android:paddingLeft="@dimen/padding_nav_btn">
+
+        </Button>
+
+
+    </LinearLayout>
 
 </FrameLayout>
