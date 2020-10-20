@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
 //            }
 //        });
         this.toolbar =findViewById(R.id.toolbar);
-//        this.setSupportActionBar(toolbar);
+        this.setSupportActionBar(toolbar);
 
         ActionBarDrawerToggle abdt =new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.openDrawer, R.string.closeDrawer);
