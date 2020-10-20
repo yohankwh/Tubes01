@@ -14,6 +14,7 @@ public class NavFragment extends Fragment implements View.OnClickListener{
     private Button navbtn;
     private Button exitBtn;
     private Button homeBtn;
+    private Button settingBtn;
 
     private FragmentListener fragmentListener;
 
@@ -27,9 +28,11 @@ public class NavFragment extends Fragment implements View.OnClickListener{
         this.navbtn = view.findViewById(R.id.btn_nav_menu);
         this.exitBtn = view.findViewById(R.id.btn_nav_exit);
         this.homeBtn = view.findViewById(R.id.btn_nav_home);
+        this.settingBtn = view.findViewById(R.id.btn_nav_setting);
         this.navbtn.setOnClickListener(this);
         this.exitBtn.setOnClickListener(this);
         this.homeBtn.setOnClickListener(this);
+        this.settingBtn.setOnClickListener(this);
         view.setOnClickListener(this);
         return view;
     }
@@ -55,6 +58,8 @@ public class NavFragment extends Fragment implements View.OnClickListener{
         }else if(view.getId()==this.homeBtn.getId()){
             this.fragmentListener.changePage(1);
             Log.d("debug", "pindah halaman ke home");
+        }else if(view==this.settingBtn){
+            this.fragmentListener.changePage(3);
         }
     }
 }

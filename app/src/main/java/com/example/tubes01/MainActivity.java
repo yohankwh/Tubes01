@@ -14,11 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
 import androidx.appcompat.widget.Toolbar;
-import android.view.View;
-import android.widget.Toast;
 
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.example.tubes01.models.Food;
 
@@ -29,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     private DrawerLayout drawer;
     private MainFragment mainFragment;
     private MenuListFragment menuListFragment;
+    private CreateFragment createFragment;
     private MainPresenter presenter;
     private Toolbar toolbar;
 
@@ -44,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
         this.drawer = findViewById(R.id.drawer_layout);
 
         this.mainFragment = new MainFragment(this.presenter);
-//        this.mainFragment = new MainFragment.newInstance("New Fragment 1");
+        this.createFragment = new CreateFragment(this.presenter);
         this.menuListFragment = new MenuListFragment(this.presenter);
 
         ft.add(R.id.fragment_container, this.mainFragment)
@@ -80,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.menuListFragment.isAdded()){
                 ft.hide(this.menuListFragment);
             }
+            if(this.createFragment.isAdded()){
+                ft.hide(this.createFragment);
+            }
             this.drawer.closeDrawers();
 //            ft.replace(R.id.fragment_container, this.fragment1)
 //                    .addToBackStack(null);
@@ -92,6 +92,23 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             }
             if(this.mainFragment.isAdded()){
                 ft.hide(this.mainFragment);
+            }
+            if(this.createFragment.isAdded()){
+                ft.hide(this.createFragment);
+            }
+            this.drawer.closeDrawers();
+        }else if(page==3){
+            if(this.createFragment.isAdded()){
+                ft.show(this.createFragment);
+            }else{
+                ft.add(R.id.fragment_container, this.createFragment)
+                        .addToBackStack(null);
+            }
+            if(this.mainFragment.isAdded()){
+                ft.hide(this.mainFragment);
+            }
+            if(this.menuListFragment.isAdded()){
+                ft.hide(this.menuListFragment);
             }
             this.drawer.closeDrawers();
         }

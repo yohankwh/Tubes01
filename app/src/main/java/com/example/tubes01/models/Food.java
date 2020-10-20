@@ -2,11 +2,13 @@ package com.example.tubes01.models;
 
 public class Food {
     protected String name;
-    protected String detail;
     protected String tag;
+    protected String bahan;
 
-    public Food(String name){
+    public Food(String name,String tag,String bahan){
         this.name = name;
+        this.tag = tag;
+        this.bahan = bahan;
     }
 
     public String getName() {
@@ -17,10 +19,6 @@ public class Food {
         this.name = name;
     }
 
-    public void setDetail(String detail) { this.detail = detail;}
-
-    public String getDetail() { return this.detail;}
-
     public void setTag(String tag) {
         this.tag = tag;
     }
@@ -28,4 +26,8 @@ public class Food {
     public String getTag() {
         return tag;
     }
+
+    public void setBahan(String bahan) { this.bahan = bahan;}
+
+    public String getBahan(){return this.bahan;}
 }

@@ -24,7 +24,7 @@
                 android:layout_height="@dimen/box_item_height"
                 android:gravity="center_vertical"
                 android:textSize="@dimen/default_fontsize"
-                android:text="MENU"
+                android:text="@string/tv_menu_desc"
                 android:textStyle="bold"/>
 
             <ListView

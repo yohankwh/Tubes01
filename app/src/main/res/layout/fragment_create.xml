@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:gravity="center">
-
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,18 +17,15 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="@dimen/tv_name_menu">
-
         </TextView>
 
-        <TextView
-            android:id="@+id/tv_menu_makanan"
+        <EditText
+            android:id="@+id/et_input_name"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/box_item_height"
-            android:text="@string/tv_menu_makanan"
-            android:textColor="@color/black"
-            android:textSize="@dimen/tv_name_menu"
-            android:gravity="center">
-        </TextView>
+            android:layout_height="@dimen/et_input_height"
+            android:gravity="center"
+            android:hint="Nama Makanan">
+        </EditText>
 
         <TextView
             android:id="@+id/tv_menu_deskripsi"
@@ -53,6 +46,12 @@
             android:layout_margin="@dimen/margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
+        <EditText
+            android:id="@+id/et_input_tag"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height"
+            android:hint="Tags, e.g. Korean, Western, Deep Fry">
+        </EditText>
 
         <TextView
             android:id="@+id/tv_menu_bahan"
@@ -63,6 +62,12 @@
             android:layout_margin="@dimen/margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
+        <EditText
+            android:id="@+id/et_input_bahan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height"
+            android:hint="Bahan">
+        </EditText>
 
         <TextView
             android:id="@+id/tv_menu_langkah_memasak"
@@ -73,6 +78,12 @@
             android:layout_margin="@dimen/margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
+        <EditText
+            android:id="@+id/et_input_langkah"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height"
+            android:hint="">
+        </EditText>
 
         <TextView
             android:id="@+id/tv_menu_resto"
@@ -83,21 +94,20 @@
             android:layout_margin="@dimen/margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
+        <EditText
+            android:id="@+id/et_input_resto"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height"
+            android:hint="Restaurant abc">
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/et_input_height"
+            android:text="Tambahkan">
+        </Button>
 
     </LinearLayout>
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:src="@drawable/ic_baseline_edit_24"
-        android:layout_margin="15dp"
-        app:fabSize="normal"
-        app:borderWidth="0dp"
-        app:elevation="6dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:id="@+id/fragment_menu_floating_btn"/>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>
