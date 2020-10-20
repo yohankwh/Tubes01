@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.tubes01.models.Food;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +28,11 @@ public class MainPresenter {
     public void loadData(){
         this.foods.addAll(Arrays.asList(MockFood.foodObjectArr));
         Log.d("SIZE: ",this.foods.size()+"");
+        this.ui.updateList(this.foods);
+    }
+
+    public void deleteList(int position){
+        this.foods.remove(position);
         this.ui.updateList(this.foods);
     }
 
