@@ -1,5 +1,4 @@
 package com.example.tubes01;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,22 +14,21 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.tubes01.FoodListAdapter;
+import com.example.tubes01.MainPresenter;
 import com.example.tubes01.models.Food;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.List;
 
-public class MenuListFragment extends Fragment implements View.OnClickListener {
+public class MenuDetailFragment extends Fragment implements View.OnClickListener{
     private FoodListAdapter adapter;
     private ListView foods;
     private MainPresenter presenter;//nanti gak perlu kyknya?
     private FloatingActionButton btn_add_menu;
     private FragmentListener fragmentListener;
-    private TextView view_food;
 
-    public MenuListFragment(MainPresenter presenter){
-        this.presenter = presenter;
-        this.adapter = new FoodListAdapter((Activity) this.presenter.ui, this.presenter );
+    public MenuDetailFragment(MainPresenter presenter){
+
     }
 
     @Override
@@ -40,11 +38,10 @@ public class MenuListFragment extends Fragment implements View.OnClickListener {
 
         this.foods = view.findViewById(R.id.lst_foods);
         this.btn_add_menu = view.findViewById(R.id.fragment_menu_floating_btn);
-        this.view_food = view.findViewById(R.id.textViewFood);
+
 
         this.foods.setAdapter(this.adapter);
         this.btn_add_menu.setOnClickListener(this);
-        this.view_food.setOnClickListener(this);
         return view;
     }
 
@@ -67,9 +64,6 @@ public class MenuListFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v==this.btn_add_menu){
             this.fragmentListener.changePage(3);
-        }else if(v==this.view_food){
-            this.fragmentListener.changePage(4);
-            Log.d("debug", "menu detail");
         }
     }
 }

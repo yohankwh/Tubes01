@@ -15,6 +15,8 @@ public class MockFood {
             new Food("Makanan 2","",""),
             new Food("Makanan 3","",""),
             new Food("Makanan 4","",""),
-            new Food("Makanan 5","","")
+            new Food("Makanan 5","",""),
+            new Food("Makanan 7","",""),
+            new Food("Makanan 8","","")
     };
 }

@@ -115,6 +115,8 @@ public class FoodListAdapter extends BaseAdapter {
                         });
                 builderAlert.create();
                 builderAlert.show();
+            }else if(view==this.title){
+
             }
         }
     }

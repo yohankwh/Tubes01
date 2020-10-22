@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     private CreateFragment createFragment;
     private MainPresenter presenter;
     private Toolbar toolbar;
+    private MenuDetailFragment menuDetailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +46,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
         this.drawer = findViewById(R.id.drawer_layout);
 
         this.mainFragment = new MainFragment(this.presenter);
-        this.createFragment = new CreateFragment(this.presenter);
+        this.createFragment = new CreateFragment(this.presenter, this);
         this.menuListFragment = new MenuListFragment(this.presenter);
+        this.menuDetailFragment = new MenuDetailFragment(this.presenter);
 
         ft.add(R.id.fragment_container, this.mainFragment)
                 .addToBackStack(null)
@@ -84,6 +86,10 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.createFragment.isAdded()){
                 ft.hide(this.createFragment);
             }
+
+            if(this.menuDetailFragment.isAdded()){
+                ft.hide(this.menuDetailFragment);
+            }
             this.drawer.closeDrawers();
 //            ft.replace(R.id.fragment_container, this.fragment1)
 //                    .addToBackStack(null);
@@ -100,6 +106,10 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.createFragment.isAdded()){
                 ft.hide(this.createFragment);
             }
+
+            if(this.menuDetailFragment.isAdded()){
+                ft.hide(this.menuDetailFragment);
+            }
             this.drawer.closeDrawers();
         }else if(page==3){
             if(this.createFragment.isAdded()){
@@ -113,6 +123,30 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             }
             if(this.menuListFragment.isAdded()){
                 ft.hide(this.menuListFragment);
+            }
+
+            if(this.menuDetailFragment.isAdded()){
+                ft.hide(this.menuDetailFragment);
+            }
+            this.drawer.closeDrawers();
+        }else if(page==4){
+            if(this.createFragment.isAdded()){
+                ft.show(this.menuDetailFragment);
+            }else{
+                ft.add(R.id.fragment_container, this.menuDetailFragment)
+                        .addToBackStack(null);
+            }
+
+            if(this.mainFragment.isAdded()){
+                ft.hide(this.mainFragment);
+            }
+
+            if(this.menuListFragment.isAdded()){
+                ft.hide(this.menuListFragment);
+            }
+
+            if(this.createFragment.isAdded()){
+                ft.hide(this.createFragment);
             }
             this.drawer.closeDrawers();
         }
@@ -191,5 +225,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             return "";
         }
     }
+
+
 
 }

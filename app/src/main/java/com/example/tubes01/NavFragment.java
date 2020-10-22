@@ -1,6 +1,8 @@
 package com.example.tubes01;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,13 +55,33 @@ public class NavFragment extends Fragment implements View.OnClickListener{
         if(view == this.navbtn){
             this.fragmentListener.changePage(2);
         }else if(view==this.exitBtn){
-            this.fragmentListener.closeApplication();
-            Log.d("debug", "keluar dari aplikasi");
+            Log.d("debug", "tombol keluar");
+
+            AlertDialog.Builder builderAlert = new AlertDialog.Builder(getActivity());
+            builderAlert.setTitle("Keluar")
+                    .setMessage("Apakah kamu ingin keluar?")
+                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Log.d("debug", "clicked Delete");
+                            fragmentListener.closeApplication();
+                        }
+                    })
+                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+//                                    Log.d("debug", "clicked tidak jadi delete");
+                            dialog.cancel();
+                        }
+                    });
+            builderAlert.create();
+            builderAlert.show();
+
         }else if(view.getId()==this.homeBtn.getId()){
             this.fragmentListener.changePage(1);
             Log.d("debug", "pindah halaman ke home");
         }else if(view==this.settingBtn){
-            this.fragmentListener.changePage(3);
+//            this.fragmentListener.changePage(3);
         }
     }
 }

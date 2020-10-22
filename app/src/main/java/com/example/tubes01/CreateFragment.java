@@ -1,5 +1,8 @@
 package com.example.tubes01;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,9 +21,14 @@ public class CreateFragment extends Fragment implements View.OnClickListener{
     private EditText etName;
     private EditText etTag;
     private EditText etBahan;
+    private EditText etLgkhMasak;
+    private EditText etResto;
+    private MainActivity activity;
 
-    public CreateFragment(MainPresenter presenter){
+
+    public CreateFragment(MainPresenter presenter, MainActivity activity){
         this.presenter = presenter;
+        this.activity = activity;
     }
 
     @Override
@@ -32,6 +40,8 @@ public class CreateFragment extends Fragment implements View.OnClickListener{
         this.etName = view.findViewById(R.id.et_input_name);
         this.etBahan = view.findViewById(R.id.et_input_bahan);
         this.etTag = view.findViewById(R.id.et_input_tag);
+        this.etLgkhMasak = view.findViewById(R.id.et_input_langkah);
+        this.etResto = view.findViewById(R.id.et_input_resto);
 
         this.addMenuBtn.setOnClickListener(this);
 
@@ -45,11 +55,63 @@ public class CreateFragment extends Fragment implements View.OnClickListener{
             String bahan = this.etBahan.getText().toString();
             String tag = this.etTag.getText().toString();
 
-            try {
-                this.presenter.addList(name, tag, bahan);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if(this.etName.getText().toString().equals("")){
+                AlertDialog.Builder builderAlert = new AlertDialog.Builder(getActivity());
+                builderAlert.setTitle("Information")
+                        .setMessage("Cek kembali nama menu")
+                        .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+//                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+////                                    Log.d("debug", "clicked tidak jadi delete");
+//                            dialog.cancel();
+//                        }
+//                    });
+                builderAlert.create();
+                builderAlert.show();
+                activity.hideKeyboard();
+            }else{
+                try {
+                    this.presenter.addList(name, tag, bahan);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                AlertDialog.Builder builderAlert = new AlertDialog.Builder(getActivity());
+                builderAlert.setTitle("Information")
+                        .setMessage("Menu berhasil ditambahkan")
+                        .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+//                                Log.d("debug", "clicked Delete");
+                            }
+                        });
+//                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+////                                    Log.d("debug", "clicked tidak jadi delete");
+//                            dialog.cancel();
+//                        }
+//                    });
+                builderAlert.create();
+                builderAlert.show();
+
+                activity.hideKeyboard();
+                this.etName.setText("");
+                this.etBahan.setText("");
+                this.etTag.setText("");
+                this.etLgkhMasak.setText("");
+                this.etResto.setText("");
+
             }
+
+
+
 
         }
     }
