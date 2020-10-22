@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
+import org.json.JSONException;
+
 public class CreateFragment extends Fragment implements View.OnClickListener{
     private MainPresenter presenter;
     private Button addMenuBtn;
@@ -43,7 +45,13 @@ public class CreateFragment extends Fragment implements View.OnClickListener{
             String bahan = this.etBahan.getText().toString();
             String tag = this.etTag.getText().toString();
 
-            this.presenter.addList(name, tag, bahan);
+            try {
+                this.presenter.addList(name, tag, bahan);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
     }
+
 }

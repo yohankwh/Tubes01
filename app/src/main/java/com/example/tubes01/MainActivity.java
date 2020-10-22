@@ -18,6 +18,10 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.tubes01.models.Food;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener, IMainActivity {
@@ -140,6 +144,52 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             view = new View(this);
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    @Override
+    public void saveToFile(String content){
+        File file = new File(this.getFilesDir(),"newfile.txt");
+
+        try (FileOutputStream fop = new FileOutputStream(file)) {
+
+            // if file doesn't exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            // get the content in bytes
+            byte[] contentInBytes = content.getBytes();
+
+            fop.write(contentInBytes);
+            fop.flush();
+            fop.close();
+
+            Log.d("LOCATION: ",this.getFilesDir()+"");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String readFile(){
+        File file = new File(this.getFilesDir(),"newfile.txt");
+
+        try (FileInputStream fis = new FileInputStream(file)) {
+
+//            Log.d("size in byte is:",fis.available()+"");
+
+        int content;
+        String msg = "";
+        while ((content = fis.read()) != -1) {
+            msg=msg+(char)content;
+        }
+        return msg;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
 }

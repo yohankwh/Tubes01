@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import org.json.JSONException;
 import org.w3c.dom.Text;
 
 public class MainFragment extends Fragment implements View.OnClickListener{
@@ -49,7 +50,11 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 //            }
 //        });
 
-        this.presenter.loadData();
+        try {
+            this.presenter.loadData();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return view;
     }
 

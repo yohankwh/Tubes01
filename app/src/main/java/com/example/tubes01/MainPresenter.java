@@ -23,27 +23,42 @@ public class MainPresenter {
         this.foods = new LinkedList<Food>();
     }
 
-    public void addList(String title, String tag, String bahan){
+    public void addList(String title, String tag, String bahan) throws JSONException {
         this.foods.add(new Food(title,tag,bahan));
 
-//        JSONArray jsonArray = new JSONArray();
-//        for(Food food : this.foods) {
-//            JSONObject food_item = new JSONObject();
-//            food_item.put("name", food.getName());
-//            food_item.put("bahan", food.getBahan());
-//            food_item.put("tag", food.getTag());
-//
+        JSONArray jsonArray = new JSONArray();
+        for(Food food : this.foods) {
+            JSONObject food_details = new JSONObject();
+            food_details.put("name", food.getName());
+            food_details.put("bahan", food.getBahan());
+            food_details.put("tag", food.getTag());
+
+            JSONObject food_item = new JSONObject();
+            food_item.put("food",food_details);
+            jsonArray.put(food_item);
+
 //            Log.d("FOOD_ITEM: ",food_item.toString());
-//            jsonArray.put(food_item);
 //            Log.d("FOOD_ARRAY: ",jsonArray.toString());
-//        }
+        }
+
+        this.ui.saveToFile(jsonArray.toString());
 
         this.ui.updateList(this.foods);
         this.ui.resetAddForm();
     }
 
-    public void loadData(){
-        this.foods.addAll(Arrays.asList(MockFood.foodObjectArr));
+    public void loadData() throws JSONException {
+        String content = this.ui.readFile();
+
+        JSONArray ja = new JSONArray(content);
+        Food[] foods = new Food[ja.length()];
+        for(int i=0;i<ja.length();i++){
+            JSONObject food = ja.getJSONObject(i);
+            food = food.getJSONObject("food");
+            foods[i] = new Food(food.getString("name"),food.getString("tag"),food.getString("bahan"));
+        }
+
+        this.foods.addAll(Arrays.asList(foods));
         Log.d("SIZE: ",this.foods.size()+"");
 
         this.ui.updateList(this.foods);
@@ -60,4 +75,5 @@ public class MainPresenter {
 
         return this.foods.get(n).getName();
     }
+
 }
