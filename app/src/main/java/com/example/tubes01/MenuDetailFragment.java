@@ -34,7 +34,7 @@ public class MenuDetailFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_menu, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu_desc, container, false);
 
         this.foods = view.findViewById(R.id.lst_foods);
         this.btn_add_menu = view.findViewById(R.id.fragment_menu_floating_btn);

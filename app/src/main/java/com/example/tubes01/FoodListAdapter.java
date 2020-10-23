@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.tubes01.models.Food;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -73,6 +75,7 @@ public class FoodListAdapter extends BaseAdapter {
         private int position;
         private ImageButton trash;
         private List<Food> tempFood;
+        private FragmentListener fragmentListener;
 
         public ViewHolder(View view, MainPresenter presenter, List<Food> foods){
             //Todo: ganti view ke binding
@@ -86,6 +89,7 @@ public class FoodListAdapter extends BaseAdapter {
         public void updateView(Food food, int position){
             this.position = position;
             this.title.setText(food.getName());
+            this.title.setOnClickListener(this);
             this.trash.setOnClickListener(this);
 
         }
@@ -102,7 +106,13 @@ public class FoodListAdapter extends BaseAdapter {
                             public void onClick(DialogInterface dialog, int which) {
                                 Log.d("debug", "clicked Delete");
 //                                tempFood.remove(position);
-                                presenter.deleteList(position);
+
+                                try {
+                                    presenter.deleteList(position);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
 //                                notifyDataSetChanged();
                             }
                         })
@@ -116,7 +126,7 @@ public class FoodListAdapter extends BaseAdapter {
                 builderAlert.create();
                 builderAlert.show();
             }else if(view==this.title){
-
+//                this.fragmentListener.changePage();
             }
         }
     }

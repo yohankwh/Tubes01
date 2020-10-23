@@ -26,22 +26,7 @@ public class MainPresenter {
     public void addList(String title, String tag, String bahan) throws JSONException {
         this.foods.add(new Food(title,tag,bahan));
 
-        JSONArray jsonArray = new JSONArray();
-        for(Food food : this.foods) {
-            JSONObject food_details = new JSONObject();
-            food_details.put("name", food.getName());
-            food_details.put("bahan", food.getBahan());
-            food_details.put("tag", food.getTag());
-
-            JSONObject food_item = new JSONObject();
-            food_item.put("food",food_details);
-            jsonArray.put(food_item);
-
-//            Log.d("FOOD_ITEM: ",food_item.toString());
-//            Log.d("FOOD_ARRAY: ",jsonArray.toString());
-        }
-
-        this.ui.saveToFile(jsonArray.toString());
+        this.updateStorageJSON();
 
         this.ui.updateList(this.foods);
         this.ui.resetAddForm();
@@ -64,8 +49,11 @@ public class MainPresenter {
         this.ui.updateList(this.foods);
     }
 
-    public void deleteList(int position){
+    public void deleteList(int position) throws JSONException {
         this.foods.remove(position);
+
+        this.updateStorageJSON();
+
         this.ui.updateList(this.foods);
     }
 
@@ -74,6 +62,25 @@ public class MainPresenter {
         int n = rand.nextInt(this.foods.size());
 
         return this.foods.get(n).getName();
+    }
+
+    public void updateStorageJSON() throws JSONException {
+        JSONArray jsonArray = new JSONArray();
+        for(Food food : this.foods) {
+            JSONObject food_details = new JSONObject();
+            food_details.put("name", food.getName());
+            food_details.put("bahan", food.getBahan());
+            food_details.put("tag", food.getTag());
+
+            JSONObject food_item = new JSONObject();
+            food_item.put("food",food_details);
+            jsonArray.put(food_item);
+
+//            Log.d("FOOD_ITEM: ",food_item.toString());
+//            Log.d("FOOD_ARRAY: ",jsonArray.toString());
+        }
+
+        this.ui.saveToFile(jsonArray.toString());
     }
 
 }
