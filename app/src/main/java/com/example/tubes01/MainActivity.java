@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.mainFragment.isAdded()){
                 ft.show(this.mainFragment);
             }else{
-                ft.add(R.id.fragment_container, this.mainFragment);
+                ft.add(R.id.fragment_container, this.mainFragment)
+                        .addToBackStack(null);
             }
             if(this.menuListFragment.isAdded()){
                 ft.hide(this.menuListFragment);
@@ -96,8 +97,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
                 ft.hide(this.editFragment);
             }
             this.drawer.closeDrawers();
-//            ft.replace(R.id.fragment_container, this.fragment1)
-//                    .addToBackStack(null);
         }else if(page==2){
             if(this.menuListFragment.isAdded()){
                 ft.show(this.menuListFragment);
