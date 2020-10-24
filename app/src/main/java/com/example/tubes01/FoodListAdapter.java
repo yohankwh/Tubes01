@@ -76,6 +76,7 @@ public class FoodListAdapter extends BaseAdapter {
         private ImageButton trash;
         private List<Food> tempFood;
         private FragmentListener fragmentListener;
+        private Food food;
 
         public ViewHolder(View view, MainPresenter presenter, List<Food> foods){
             //Todo: ganti view ke binding
@@ -91,7 +92,7 @@ public class FoodListAdapter extends BaseAdapter {
             this.title.setText(food.getName());
             this.title.setOnClickListener(this);
             this.trash.setOnClickListener(this);
-
+            this.food = food;
         }
 
         @Override
@@ -126,7 +127,9 @@ public class FoodListAdapter extends BaseAdapter {
                 builderAlert.create();
                 builderAlert.show();
             }else if(view==this.title){
-//                this.fragmentListener.changePage();
+                Log.d("TEST",this.title.getText()+"");
+                this.presenter.changePagePresenter(4);
+                this.presenter.getFoodDetails(this.food, this.position);
             }
         }
     }

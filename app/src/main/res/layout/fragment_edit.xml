@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<FrameLayout -->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    >-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:isScrollContainer="true"
+        >
+
+        <TextView
+            android:id="@+id/tv_menu_desc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/box_item_height"
+            android:gravity="center_vertical"
+            android:text="@string/tv_menu_desc"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_name_menu">
+        </TextView>
+
+        <EditText
+            android:id="@+id/et_input_name_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height"
+            android:gravity="center">
+        </EditText>
+
+        <TextView
+            android:id="@+id/tv_menu_deskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_deskripsi"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_tag"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+        <EditText
+            android:id="@+id/et_input_tag_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height">
+        </EditText>
+
+        <TextView
+            android:id="@+id/tv_menu_bahan_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_bahan"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+        <EditText
+            android:id="@+id/et_input_bahan_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height">
+        </EditText>
+
+        <TextView
+            android:id="@+id/tv_menu_langkah_memasak_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_langkah_memasak"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+        <EditText
+            android:id="@+id/et_input_langkah_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height">
+        </EditText>
+
+        <TextView
+            android:id="@+id/tv_menu_resto_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_resto"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+        <EditText
+            android:id="@+id/et_input_resto_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_input_height">
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/et_input_height"
+            android:text="Update Menu">
+        </Button>
+
+    </LinearLayout>
+</ScrollView>
+    <!--</FrameLayout>-->

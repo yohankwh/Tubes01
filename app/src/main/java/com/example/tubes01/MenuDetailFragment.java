@@ -21,14 +21,24 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class MenuDetailFragment extends Fragment implements View.OnClickListener{
-    private FoodListAdapter adapter;
-    private ListView foods;
-    private MainPresenter presenter;//nanti gak perlu kyknya?
-    private FloatingActionButton btn_add_menu;
+    private MainPresenter presenter;
+    private FloatingActionButton btn_edit_menu;
     private FragmentListener fragmentListener;
+    private Food food;
+    private int position;
+    private TextView title;
+    private TextView tag;
+    private TextView bahan;
+    private TextView langkah;
+    private TextView resto;
 
     public MenuDetailFragment(MainPresenter presenter){
+        this.presenter = presenter;
+    }
 
+    public void setFood(Food food, int position){
+        this.food = food;
+        this.position = position;
     }
 
     @Override
@@ -36,17 +46,18 @@ public class MenuDetailFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu_desc, container, false);
 
-        this.foods = view.findViewById(R.id.lst_foods);
-        this.btn_add_menu = view.findViewById(R.id.fragment_menu_floating_btn);
+        this.btn_edit_menu = view.findViewById(R.id.fragment_menu_floating_btn);
+        this.btn_edit_menu.setOnClickListener(this);
 
+        this.title = view.findViewById(R.id.tv_menu_makanan);
+        this.tag = view.findViewById(R.id.tv_menu_tag);
+        this.bahan = view.findViewById(R.id.tv_menu_bahan);
 
-        this.foods.setAdapter(this.adapter);
-        this.btn_add_menu.setOnClickListener(this);
+        this.title.setText(this.food.getName());
+        this.tag.setText(this.food.getTag());
+        this.bahan.setText(this.food.getBahan());
+
         return view;
-    }
-
-    public void updateList(List<Food> foods){
-        this.adapter.update(foods);
     }
 
     @Override
@@ -62,8 +73,8 @@ public class MenuDetailFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if(v==this.btn_add_menu){
-            this.fragmentListener.changePage(3);
+        if(v==this.btn_edit_menu){
+            this.fragmentListener.changePage(5);
         }
     }
 }

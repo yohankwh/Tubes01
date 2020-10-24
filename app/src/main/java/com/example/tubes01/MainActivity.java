@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     private MainFragment mainFragment;
     private MenuListFragment menuListFragment;
     private CreateFragment createFragment;
+    private EditFragment editFragment;
     private MainPresenter presenter;
     private Toolbar toolbar;
     private MenuDetailFragment menuDetailFragment;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.presenter = new MainPresenter(this);
+        this.presenter = new MainPresenter(this, this);
         this.fragmentManager = this.getSupportFragmentManager();
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
         this.createFragment = new CreateFragment(this.presenter, this);
         this.menuListFragment = new MenuListFragment(this.presenter);
         this.menuDetailFragment = new MenuDetailFragment(this.presenter);
+        this.editFragment = new EditFragment(this.presenter);
 
         ft.add(R.id.fragment_container, this.mainFragment)
                 .addToBackStack(null)
@@ -90,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.menuDetailFragment.isAdded()){
                 ft.hide(this.menuDetailFragment);
             }
+            if(this.editFragment.isAdded()){
+                ft.hide(this.editFragment);
+            }
             this.drawer.closeDrawers();
 //            ft.replace(R.id.fragment_container, this.fragment1)
 //                    .addToBackStack(null);
@@ -97,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.menuListFragment.isAdded()){
                 ft.show(this.menuListFragment);
             }else{
-                ft.add(R.id.fragment_container, this.menuListFragment)
+                ft.replace(R.id.fragment_container, this.menuListFragment)
                         .addToBackStack(null);
             }
             if(this.mainFragment.isAdded()){
@@ -106,9 +111,11 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.createFragment.isAdded()){
                 ft.hide(this.createFragment);
             }
-
             if(this.menuDetailFragment.isAdded()){
                 ft.hide(this.menuDetailFragment);
+            }
+            if(this.editFragment.isAdded()){
+                ft.hide(this.editFragment);
             }
             this.drawer.closeDrawers();
         }else if(page==3){
@@ -124,32 +131,55 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.menuListFragment.isAdded()){
                 ft.hide(this.menuListFragment);
             }
-
             if(this.menuDetailFragment.isAdded()){
                 ft.hide(this.menuDetailFragment);
             }
+            if(this.editFragment.isAdded()){
+                ft.hide(this.editFragment);
+            }
             this.drawer.closeDrawers();
         }else if(page==4){
-            if(this.createFragment.isAdded()){
+            if(this.menuDetailFragment.isAdded()){
                 ft.show(this.menuDetailFragment);
             }else{
                 ft.add(R.id.fragment_container, this.menuDetailFragment)
+                        .addToBackStack(null);
+            }
+            if(this.mainFragment.isAdded()){
+                ft.hide(this.mainFragment);
+            }
+            if(this.menuListFragment.isAdded()){
+                ft.hide(this.menuListFragment);
+            }
+            if(this.createFragment.isAdded()){
+                ft.hide(this.createFragment);
+            }
+            if(this.editFragment.isAdded()){
+                ft.hide(this.editFragment);
+            }
+            this.drawer.closeDrawers();
+        }else if(page==5){
+            if(this.editFragment.isAdded()){
+                ft.show(this.editFragment);
+            }else{
+                ft.add(R.id.fragment_container, this.editFragment)
                         .addToBackStack(null);
             }
 
             if(this.mainFragment.isAdded()){
                 ft.hide(this.mainFragment);
             }
-
             if(this.menuListFragment.isAdded()){
                 ft.hide(this.menuListFragment);
             }
-
             if(this.createFragment.isAdded()){
                 ft.hide(this.createFragment);
             }
+            if(this.menuDetailFragment.isAdded()){
+                ft.hide(this.menuDetailFragment);
+            }
             this.drawer.closeDrawers();
-        }
+    }
         ft.commit();
     }
 
@@ -167,6 +197,12 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     public void closeApplication(){
         this.moveTaskToBack(true);
         this.finish();
+    }
+
+    @Override
+    public void showMenuDetails(Food food, int position) {
+        this.menuDetailFragment.setFood(food, position);
+        this.editFragment.setFood(food, position);
     }
 
     public void hideKeyboard() {

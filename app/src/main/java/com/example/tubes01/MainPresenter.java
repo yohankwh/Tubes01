@@ -14,13 +14,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class MainPresenter {
+public class MainPresenter{
     protected List<Food> foods;
     protected IMainActivity ui;
+    protected FragmentListener fl;
 
-    public MainPresenter(IMainActivity activity){
+    public MainPresenter(IMainActivity activity, FragmentListener fl){
         this.ui = activity;
         this.foods = new LinkedList<Food>();
+        this.fl = fl;
     }
 
     public void addList(String title, String tag, String bahan) throws JSONException {
@@ -83,4 +85,18 @@ public class MainPresenter {
         this.ui.saveToFile(jsonArray.toString());
     }
 
+    public void changePagePresenter(int page){
+        this.fl.changePage(page);
+    }
+
+    public void getFoodDetails(Food food, int position){
+        this.fl.showMenuDetails(food, position);
+    }
+
+    public void addList(Food food, int position) throws JSONException {
+        this.deleteList(position);
+        this.foods.add(position, food);
+        this.updateStorageJSON();
+        this.ui.updateList(this.foods);
+    }
 }
