@@ -75,8 +75,8 @@ public class EditFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         if(view == this.updateBtn){
             this.food.setName(this.title.getText().toString());
-            this.food.setTag(this.tag.getText().toString());
-            this.food.setBahan(this.bahan.getText().toString());
+            this.food.setTag("Tag: " + this.tag.getText().toString());
+            this.food.setBahan("Bahan: " + this.bahan.getText().toString());
 
             try {
                 this.presenter.addList(this.food, this.position);
