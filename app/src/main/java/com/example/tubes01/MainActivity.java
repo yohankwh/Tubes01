@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             if(this.menuListFragment.isAdded()){
                 ft.show(this.menuListFragment);
             }else{
-                ft.replace(R.id.fragment_container, this.menuListFragment)
+                ft.add(R.id.fragment_container, this.menuListFragment)
                         .addToBackStack(null);
             }
             if(this.mainFragment.isAdded()){
@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             this.drawer.closeDrawers();
         }else if(page==4){
             if(this.menuDetailFragment.isAdded()){
+                this.resetDetailsPage();
                 ft.show(this.menuDetailFragment);
             }else{
                 ft.add(R.id.fragment_container, this.menuDetailFragment)
@@ -160,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
             this.drawer.closeDrawers();
         }else if(page==5){
             if(this.editFragment.isAdded()){
+                this.resetEditPage();
                 ft.show(this.editFragment);
             }else{
                 ft.add(R.id.fragment_container, this.editFragment)
@@ -203,6 +205,16 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     public void showMenuDetails(Food food, int position) {
         this.menuDetailFragment.setFood(food, position);
         this.editFragment.setFood(food, position);
+        Log.d("TESTXBB",food.getName()+"");
+    }
+
+    @Override
+    public void resetEditPage() {
+        this.editFragment.reset();
+    }
+
+    public void resetDetailsPage() {
+        this.menuDetailFragment.resetDetail();
     }
 
     public void hideKeyboard() {

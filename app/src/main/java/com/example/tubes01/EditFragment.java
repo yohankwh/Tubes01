@@ -87,4 +87,10 @@ public class EditFragment extends Fragment implements View.OnClickListener{
             this.fragmentListener.changePage(2);
         }
     }
+
+    public void reset(){
+        this.title.setText(this.food.getName());
+        this.tag.setText(this.food.getTag());
+        this.bahan.setText(this.food.getBahan());
+    }
 }

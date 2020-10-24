@@ -90,6 +90,7 @@ public class MainPresenter{
     }
 
     public void getFoodDetails(Food food, int position){
+        Log.d("TESTXBA",food.getName()+"");
         this.fl.showMenuDetails(food, position);
     }
 

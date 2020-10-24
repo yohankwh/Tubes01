@@ -77,4 +77,10 @@ public class MenuDetailFragment extends Fragment implements View.OnClickListener
             this.fragmentListener.changePage(5);
         }
     }
+
+    public void resetDetail(){
+        this.title.setText(this.food.getName());
+        this.tag.setText(this.food.getTag());
+        this.bahan.setText(this.food.getBahan());
+    }
 }

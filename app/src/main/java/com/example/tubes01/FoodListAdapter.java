@@ -127,9 +127,10 @@ public class FoodListAdapter extends BaseAdapter {
                 builderAlert.create();
                 builderAlert.show();
             }else if(view==this.title){
-                Log.d("TEST",this.title.getText()+"");
-                this.presenter.changePagePresenter(4);
+                Log.d("TESTXA",this.title.getText()+"");
                 this.presenter.getFoodDetails(this.food, this.position);
+                Log.d("TESTXB",this.food.getName()+"");
+                this.presenter.changePagePresenter(4);
             }
         }
     }
