@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/tv_menu_makanan"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/box_item_height"
+            android:layout_height="@dimen/regular_box_item_height"
             android:text="@string/tv_menu_makanan"
             android:textColor="@color/black"
             android:textSize="@dimen/tv_name_menu"
@@ -40,45 +40,77 @@
             android:layout_height="wrap_content"
             android:text="@string/tv_menu_deskripsi"
             android:textColor="@color/black"
-            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:layout_margin="@dimen/small_margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
 
         <TextView
-            android:id="@+id/tv_menu_tag"
+            android:id="@+id/tv_menu_tag_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tv_menu_tag"
             android:textColor="@color/black"
+            android:layout_margin="@dimen/small_margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+        <TextView
+            android:id="@+id/tv_menu_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_margin="@dimen/margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
 
         <TextView
-            android:id="@+id/tv_menu_bahan"
+            android:id="@+id/tv_menu_bahan_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tv_menu_bahan"
             android:textColor="@color/black"
-            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:layout_margin="@dimen/small_margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
-
         <TextView
-            android:id="@+id/tv_menu_langkah_memasak"
+            android:id="@+id/tv_menu_bahan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_menu_langkah_memasak"
             android:textColor="@color/black"
             android:layout_margin="@dimen/margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
         </TextView>
 
         <TextView
-            android:id="@+id/tv_menu_resto"
+            android:id="@+id/tv_menu_langkah_memasak_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_menu_langkah_memasak"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/small_margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+        <TextView
+            android:id="@+id/tv_menu_langkah_memasak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_menu_resto_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tv_menu_resto"
+            android:textColor="@color/black"
+            android:layout_margin="@dimen/small_margin_frag_tv_menu_desc"
+            android:textSize="@dimen/tv_name_desc_font">
+        </TextView>
+        <TextView
+            android:id="@+id/tv_menu_resto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:layout_margin="@dimen/margin_frag_tv_menu_desc"
             android:textSize="@dimen/tv_name_desc_font">
