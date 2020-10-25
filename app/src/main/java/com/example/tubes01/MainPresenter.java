@@ -25,8 +25,8 @@ public class MainPresenter{
         this.fl = fl;
     }
 
-    public void addList(String title, String tag, String bahan) throws JSONException {
-        this.foods.add(new Food(title,tag,bahan));
+    public void addList(String title, String tag, String bahan, String langkah, String resto) throws JSONException {
+        this.foods.add(new Food(title,tag,bahan, langkah, resto));
 
         this.updateStorageJSON();
 
@@ -42,7 +42,11 @@ public class MainPresenter{
         for(int i=0;i<ja.length();i++){
             JSONObject food = ja.getJSONObject(i);
             food = food.getJSONObject("food");
-            foods[i] = new Food(food.getString("name"),food.getString("tag"),food.getString("bahan"));
+            foods[i] = new Food(food.getString("name"),
+                                food.getString("tag"),
+                                food.getString("bahan"),
+                                food.getString("langkah"),
+                                food.getString("resto"));
         }
 
         this.foods.addAll(Arrays.asList(foods));
@@ -73,6 +77,8 @@ public class MainPresenter{
             food_details.put("name", food.getName());
             food_details.put("bahan", food.getBahan());
             food_details.put("tag", food.getTag());
+            food_details.put("langkah", food.getLangkah());
+            food_details.put("resto", food.getResto());
 
             JSONObject food_item = new JSONObject();
             food_item.put("food",food_details);

@@ -52,10 +52,14 @@ public class MenuDetailFragment extends Fragment implements View.OnClickListener
         this.title = view.findViewById(R.id.tv_menu_makanan);
         this.tag = view.findViewById(R.id.tv_menu_tag);
         this.bahan = view.findViewById(R.id.tv_menu_bahan);
+        this.langkah = view.findViewById(R.id.tv_menu_langkah_memasak);
+        this.resto = view.findViewById(R.id.tv_menu_resto);
 
         this.title.setText(this.food.getName());
         this.tag.setText(this.food.getTag());
         this.bahan.setText(this.food.getBahan());
+        this.langkah.setText(this.food.getLangkah());
+        this.resto.setText(this.food.getResto());
 
         return view;
     }
@@ -82,5 +86,7 @@ public class MenuDetailFragment extends Fragment implements View.OnClickListener
         this.title.setText(this.food.getName());
         this.tag.setText(this.food.getTag());
         this.bahan.setText(this.food.getBahan());
+        this.langkah.setText(this.food.getLangkah());
+        this.resto.setText(this.food.getResto());
     }
 }

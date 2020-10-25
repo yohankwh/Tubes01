@@ -23,6 +23,8 @@ public class EditFragment extends Fragment implements View.OnClickListener{
     private EditText title;
     private EditText tag;
     private EditText bahan;
+    private EditText langkah;
+    private EditText resto;
     private Button updateBtn;
 
     public EditFragment(MainPresenter presenter) {
@@ -49,10 +51,15 @@ public class EditFragment extends Fragment implements View.OnClickListener{
         this.tag = view.findViewById(R.id.et_input_tag_edit);
         this.bahan = view.findViewById(R.id.et_input_bahan_edit);
         this.updateBtn = view.findViewById(R.id.btn_update);
+        this.langkah = view.findViewById(R.id.et_input_langkah_edit);
+        this.resto = view.findViewById(R.id.et_input_resto_edit);
 
         this.title.setText(this.food.getName());
         this.tag.setText(this.food.getTag());
         this.bahan.setText(this.food.getBahan());
+        this.langkah.setText(this.food.getLangkah());
+        this.resto.setText(this.food.getResto());
+
 
         this.updateBtn.setOnClickListener(this);
 
@@ -92,5 +99,7 @@ public class EditFragment extends Fragment implements View.OnClickListener{
         this.title.setText(this.food.getName());
         this.tag.setText(this.food.getTag());
         this.bahan.setText(this.food.getBahan());
+        this.langkah.setText(this.food.getLangkah());
+        this.resto.setText(this.food.getResto());
     }
 }

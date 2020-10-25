@@ -54,6 +54,8 @@ public class CreateFragment extends Fragment implements View.OnClickListener{
             String name = this.etName.getText().toString();
             String bahan = this.etBahan.getText().toString();
             String tag = this.etTag.getText().toString();
+            String langkah = this.etLgkhMasak.getText().toString();
+            String resto = this.etResto.getText().toString();
 
             if(this.etName.getText().toString().equals("")){
                 AlertDialog.Builder builderAlert = new AlertDialog.Builder(getActivity());
@@ -77,7 +79,7 @@ public class CreateFragment extends Fragment implements View.OnClickListener{
                 activity.hideKeyboard();
             }else{
                 try {
-                    this.presenter.addList(name, tag, bahan);
+                    this.presenter.addList(name, tag, bahan, langkah, resto);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
