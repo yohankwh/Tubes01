@@ -2,6 +2,7 @@ package com.example.tubes01;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.fragment.app.FragmentTransaction;
@@ -56,14 +57,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
                 .addToBackStack(null)
                 .commit();
 
-//        FloatingActionButton floatingActionButton=findViewById(R.id.fragment_menu_floating_btn);
-//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "Floating Action Button Berhasil dibuat", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
         this.toolbar =findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
 
@@ -75,11 +68,12 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
 
     @Override
     public void onBackPressed() {
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-        if(count==0) {
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        //if in EditFragment, when press back run changePage to avoid error!
+        if (f instanceof EditFragment) {
+            this.changePage(2);
+        }else {
             super.onBackPressed();
-        }else{
-            getSupportFragmentManager().popBackStack();
         }
     }
 
@@ -198,11 +192,6 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     @Override
     public void updateList(List<Food> foods) {
         this.menuListFragment.updateList(foods);
-    }
-
-    @Override
-    public void resetAddForm() {
-
     }
 
     @Override

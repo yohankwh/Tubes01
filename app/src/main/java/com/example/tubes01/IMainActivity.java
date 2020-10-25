@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface IMainActivity {
     public void updateList(List<Food> foods);
-    public void resetAddForm();
     public void saveToFile(String content);
     public String readFile();
 }

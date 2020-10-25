@@ -18,6 +18,7 @@ public class MainPresenter{
     protected List<Food> foods;
     protected IMainActivity ui;
     protected FragmentListener fl;
+    protected int prev;
 
     public MainPresenter(IMainActivity activity, FragmentListener fl){
         this.ui = activity;
@@ -31,7 +32,6 @@ public class MainPresenter{
         this.updateStorageJSON();
 
         this.ui.updateList(this.foods);
-        this.ui.resetAddForm();
     }
 
     public void loadData() throws JSONException {
