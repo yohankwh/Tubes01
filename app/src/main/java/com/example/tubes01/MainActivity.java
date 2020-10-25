@@ -74,6 +74,17 @@ public class MainActivity extends AppCompatActivity implements FragmentListener,
     }
 
     @Override
+    public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if(count==0) {
+            super.onBackPressed();
+        }else{
+            getSupportFragmentManager().popBackStack();
+        }
+    }
+
+
+    @Override
     public void changePage(int page){
         FragmentTransaction ft = this.fragmentManager.beginTransaction();
         if(page==1){
